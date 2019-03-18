@@ -1,0 +1,55 @@
+
+<div class="container">
+  <h2>User Table</h2>
+  <br/>
+  <div class="row">
+         <div class="col-xs-6">
+           <div class="form-group">
+           <label >{{num}} # of Users:</label>
+           <select class="selectpicker " (change)="onSelect($event, 3)" >
+             <option>Select ...</option>
+             <option value="5"    >a.  5 </option>
+             <option value="10"   >b.  10</option>
+             <option value="25"   >c.  25</option>
+             <option value="50"   >d.  50</option>
+             <option value="100"  >e.  100</option>
+             <option value="200"  >f.  200</option>
+           </select>
+           </div>
+         </div>
+         <div class="col-xs-6">
+
+                <form  (keyup.enter)="onSearch($event.target.value)"><input class="form-control search-input" type="text" placeholder="Search for ... "  class="pull-right"/><i class="fa fa-search fa-fw pull-right"></i></form>
+
+     </div>
+
+
+
+
+
+
+  <br/>
+  <br/>
+<table class="table table-striped mt-5">
+  <thead>
+    <tr>
+      <th scope="col"># </th>
+      <th scope="col">First Name<i class="fa fa-check" ng-dblclick="count++" ng-init="count=0" (click)="onSort($count, 'firstname')"></i></th>
+      <th scope="col">Last  Name<i class="fa fa-check" ng-dblclick="count++" ng-init="count=0" (click)="onSort( $count,'lastname')"></i></th>
+      <th scope="col">Email <i class="fa fa-check" ng-dblclick="count++" ng-init="count=0" (click)="onSort( $count,'email')"></i></th>
+      <th scope="col">Age   <i class="fa fa-check" ng-dblclick="count++" ng-init="count=0" (click)="onSort( $count,'age')"></i></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users;let i = index">
+      <th scope="row" >{{i}}</th>
+      <td>{{user.firstname}}</td>
+      <td>{{user.lastname}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.age}}</td>
+    </tr>
+  </tbody>
+</table>
+  <br/>
+  <br/>
+</div>
